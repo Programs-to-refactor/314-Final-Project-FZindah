@@ -14,7 +14,6 @@ import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
 
 public class FinalProject {
-	
 	public static void main(String[] args) {
 		
 		// test rPermutationsAndCombinations method using JUnit
@@ -26,7 +25,6 @@ public class FinalProject {
 		}
 		System.out.println("Program successful: " + result.wasSuccessful());
 		
-		// initialize scanner for user input
 		Scanner input = new Scanner(System.in);
 		System.out.println("---------------------------------------------\n r-permutations "
 				+ "and r-combinations calculator\n--------------------" + "-------------------------");
@@ -34,7 +32,6 @@ public class FinalProject {
 		// run program until user quits
 		while (true) {
 			try {
-				// get user input
 				System.out.print("Enter a positive integer (n) for num elements in set: ");
 				int n = input.nextInt();
 				System.out.print("\nEnter an integer for r: ");
@@ -51,8 +48,6 @@ public class FinalProject {
 
 			System.out.println("Try again? (yes/no)");
 			input.nextLine();
-			
-			// ask if user wants to continue
 			if (input.nextLine().equals("no")) {
 				input.close();
 				break;
@@ -87,9 +82,8 @@ public class FinalProject {
 				rFact = BigInteger.valueOf(i).multiply(rFact);
 		}
 
-		// implement equation for permutations
+		// implement equations for permutations and combinations
 		BigInteger rPerm = nFact.divide(nrFact);
-		// implement equation for combinations
 		BigInteger rComb = nFact.divide(rFact.multiply(nrFact));
 
 		return new BigInteger[] {rPerm, rComb};
