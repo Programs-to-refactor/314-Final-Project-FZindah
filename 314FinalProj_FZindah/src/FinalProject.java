@@ -66,12 +66,9 @@ public class FinalProject {
 		
 		// declare BigInteger variables for factorials
 		BigInteger nFact = BigInteger.valueOf(n);
-		BigInteger rFact = BigInteger.valueOf(r);
-		BigInteger nrFact = BigInteger.valueOf(n - r);
-		
-		// 0! = 1, so if r = 0, change to 1;
-		if (rFact.equals(new BigInteger("0")))
-			rFact = new BigInteger("1");
+		// 0! = 1, so if values == 0, change to 1;
+		BigInteger rFact = (r == 0) ? new BigInteger("1") : BigInteger.valueOf(r);
+		BigInteger nrFact = (n - r == 0) ? new BigInteger("1") : BigInteger.valueOf(n - r);
 
 		// loop to calculate factorials for n, r, and n-r
 		for (int i = n - 1; i > 0; i--) {
