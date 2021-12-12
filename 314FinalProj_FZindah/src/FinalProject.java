@@ -64,24 +64,23 @@ public class FinalProject {
 		if (n <= 0 || r > n || r < 0)
 			throw new Exception();
 		
-		// declare BigInteger variables for factorials
-		BigInteger nFact = BigInteger.valueOf(n);
-		// 0! = 1, so if values == 0, change to 1;
-		BigInteger rFact = (r == 0) ? new BigInteger("1") : BigInteger.valueOf(r);
-		BigInteger nrFact = (n - r == 0) ? new BigInteger("1") : BigInteger.valueOf(n - r);
+		// declare variables for factorials
+		BigInteger nFact = new BigInteger("1");
+		BigInteger rFact = new BigInteger("1");
 
-		// loop to calculate factorials for n, r, and n-r
-		for (int i = n - 1; i > 0; i--) {
-			nFact = BigInteger.valueOf(i).multiply(nFact);
-			if (i < n - r)
-				nrFact = BigInteger.valueOf(i).multiply(nrFact);
-			if (i < r)
+		// loop to calculate n! and r!
+		for (int i = n; i > 0; i--) {
+			// stop n! when i equals (n-r), prevents unnecessary division
+			if (i > (n - r))
+				nFact = BigInteger.valueOf(i).multiply(nFact);
+			if (i <= r)
 				rFact = BigInteger.valueOf(i).multiply(rFact);
 		}
 
 		// implement equations for permutations and combinations
-		BigInteger rPerm = nFact.divide(nrFact);
-		BigInteger rComb = nFact.divide(rFact.multiply(nrFact));
+		BigInteger rPerm = nFact;
+		// 0! = 1, so if r equals 0, change to 1;
+		BigInteger rComb = nFact.divide(rFact.equals(new BigInteger("0")) ? new BigInteger("1") : rFact);
 
 		return new BigInteger[] {rPerm, rComb};
 	}
