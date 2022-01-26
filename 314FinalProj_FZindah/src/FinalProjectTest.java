@@ -14,11 +14,19 @@ public class FinalProjectTest {
 	
 	// Test r-permutation values
 	@Test
-	public void testRPermutations() throws Exception {
+	public void testRPermutationsRandom() throws Exception {
 		// check random numbers
 		assertEquals(new BigInteger("20"), FinalProject.rPermutationsAndCombinations(5, 2)[0]);
+	}
+		// Test r-permutation edge values
+	@Test
+	public void testRPermutationsEdge() throws Exception {
 		// check when r = 0
 		assertEquals(new BigInteger("1"), FinalProject.rPermutationsAndCombinations(5, 0)[0]);
+	}
+		// Test r-permutation large values
+	@Test
+	public void testRPermutationsRandom() throws Exception {
 		// check with big numbers
 		assertEquals(new BigInteger("331284225412682501619179520000"), 
 				FinalProject.rPermutationsAndCombinations(100, 15)[0]);
@@ -29,8 +37,18 @@ public class FinalProjectTest {
 	public void testRCombinations() throws Exception {
 		// check random numbers
 		assertEquals(new BigInteger("10"), FinalProject.rPermutationsAndCombinations(5, 2)[1]);
+	}
+	
+	// Test r-combination edge values
+	@Test
+	public void testRCombinations() throws Exception {
 		// check when r = 0
 		assertEquals(new BigInteger("1"), FinalProject.rPermutationsAndCombinations(5, 0)[1]);
+	}
+	
+	// Test r-combination large values
+	@Test
+	public void testRCombinations() throws Exception {
 		// check with big numbers
 		assertEquals(new BigInteger("253338471349988640"), 
 				FinalProject.rPermutationsAndCombinations(100, 15)[1]);
